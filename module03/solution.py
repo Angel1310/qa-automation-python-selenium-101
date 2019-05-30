@@ -78,11 +78,45 @@ def factorial(n):
         return n * factorial(n - 1)
 
 def fibonacci(n):
-    if n == 1:
+    fib = [1,1]
+    if n <= 1:
         return [1]
 
-    fib = [1, 1]
     while len(fib) < n:
-        fib.append(fib[len(fib) - 1] + fib[len(fib) - 2])
+        fib_next = fib[len(fib) - 1] + fib[len(fib) - 2]
+        fib.append(fib_next)
 
     return fib
+
+def fib_number(n):
+    result = ''
+
+    for number in fibonacci(n):
+        result += str(number)
+
+    return int(result)
+
+
+def palindrome(obj):
+    first = 0
+    last = -1
+    string = str(obj)
+    count = len(string) // 2
+    while first < count:
+        if string[first] != string[last]:
+            return False
+        first += 1
+        last -= 1
+
+    return True
+
+def char_histogram(str):
+    letters = []
+    dict = {}
+
+    for char in str:
+        letters.append(char)
+        dict[char] = letters.count(char)
+
+
+    return dict

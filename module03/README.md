@@ -12,7 +12,7 @@ and `for` statements.
 In Python `if` and `while` statements are used to control program flow by
 examining boolean conditions. Comparison operators are described in
 [6.10 Comparisons](https://docs.python.org/3/reference/expressions.html#comparisons),
-boolean operations are described in 
+boolean operations are described in
 [6.11 Boolean operations](https://docs.python.org/3/reference/expressions.html#boolean-operations).
 
 The `for` statement is used to iterate over sequences. The basic sequence types are
