@@ -1,103 +1,113 @@
-import os
+''' Module03'''
 
-def sum_of_digits(n):
-    if n < 0:
-        n = abs(n)
+def sum_of_digits(digit_sum):
+    ''' sum digits '''
 
-    sum = 0
-    while n:
-        sum += n % 10
-        n = n // 10
+    digit_sum = abs(digit_sum)
 
-    return sum
+    result_sum = 0
+    while digit_sum:
+        result_sum += digit_sum % 10
+        digit_sum = digit_sum // 10
+
+    return result_sum
 
 
-def to_digits(n):
-    l = []
-    if n < 0:
-        n = abs(n)
+def to_digits(num_to_d):
+    ''' to digits '''
 
-    while n:
-        b = n % 10
-        n = n // 10
-        l.append(b)
 
-    return list(reversed(l))
+    num_to_d = abs(num_to_d)
+    list_digits = []
+    while num_to_d:
+        list_digits.append(num_to_d % 10)
+        num_to_d = num_to_d // 10
+
+    return list(reversed(list_digits))
+
 
 def to_number(digits):
-
+    ''' to n '''
     number = i = 0
-    for digit in list(reversed(digits)):
+    for digit in reversed(digits):
         number += digit * (10 ** i)
         i += 1
 
     return number
 
 
-def count_vowels(str):
+def count_vowels(input_word):
+    '''count vowels '''
     vowels = "aeiouy"
-    str = str.lower()
+    input_word = input_word.lower()
     count = 0
-    for letter in str:
-        if (letter in vowels):
+    for letter in input_word:
+        if letter in vowels:
             count += 1
 
     return count
 
 
-def count_consonants(str):
+def count_consonants(input_word):
+    '''count consonants '''
     consonants = "bcdfghjklmnpqrstvwxz"
-    str = str.lower()
+    input_word = input_word.lower()
     i = 0
-    for letter in str:
-        if (letter in consonants):
+    for letter in input_word:
+        if letter in consonants:
             i += 1
 
     return i
 
 
-def prime_number(n):
-    for i in range(2, n):
-        if (n % i) == 0:
+def prime_number(p_num):
+    ''' to prime number '''
+    for i in range(2, p_num):
+        if (p_num % i) == 0:
             return False
 
     return True
 
-def fact_digits(n):
-    sum = 0
+def fact_digits(to_fact):
+    '''return factorial of digits of number'''
+    result_sum = 0
 
-    for number in to_digits(n):
-        sum += factorial(number)
+    for number in to_digits(to_fact):
+        result_sum += factorial(number)
 
-    return sum
+    return result_sum
 
-def factorial(n):
-    if n == 0 or n == 1:
+def factorial(to_fact):
+    '''return factorial of a number'''
+    if to_fact == 0 or to_fact == 1:
         return 1
     else:
-        return n * factorial(n - 1)
+        return to_fact * factorial(to_fact - 1)
 
-def fibonacci(n):
-    fib = [1,1]
-    if n <= 1:
+def fibonacci(to_fib):
+    '''return list with fibonacci number'''
+    fib = [1, 1]
+    if to_fib <= 1:
         return [1]
 
-    while len(fib) < n:
+    while len(fib) < to_fib:
         fib_next = fib[len(fib) - 1] + fib[len(fib) - 2]
         fib.append(fib_next)
 
     return fib
 
-def fib_number(n):
+def fib_number(to_fib):
+    '''fibonacci number'''
     result = ''
 
-    for number in fibonacci(n):
+    for number in fibonacci(to_fib):
         result += str(number)
 
     return int(result)
 
 
 def palindrome(obj):
+    '''check for palindrome '''
     first = 0
     last = -1
     string = str(obj)
@@ -110,13 +120,14 @@ def palindrome(obj):
 
     return True
 
-def char_histogram(str):
+def char_histogram(word):
+    '''histogram'''
     letters = []
-    dict = {}
+    word_dict = {}
 
-    for char in str:
+    for char in word:
         letters.append(char)
-        dict[char] = letters.count(char)
+        word_dict[char] = letters.count(char)
 
 
-    return dict
+    return word_dict
