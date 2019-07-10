@@ -58,3 +58,21 @@ class CashDesk:
 		for bill in self.bills:
 			result += int(bill)
 		return result
+	
+	def inspect(self):
+		result = """We have a total of {}$ in the desk
+We have the following count of bills, sorted in ascending order:""".format(self.total())
+		bills_dict = {}
+		for bill in self.bills:
+			if not int(bill) in bills_dict:
+				bills_dict[int(bill)] = 1
+			else:
+				bills_dict[int(bill)] += 1
+
+		
+
+		for key in sorted(bills_dict.keys()):
+			result += '\n' + str(key) + "$ bills - " + str(bills_dict[key]) 
+			
+		return result
+
